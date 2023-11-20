@@ -106,7 +106,7 @@ def t_IDENTIFIER(t):
     t.type = t.value.upper() if t.value.upper() in tokens else 'IDENTIFIER'
     return t
 
-
+#Reconocer numeros enteros y flotantes
 def t_NUMBER_CONST(t):
     r'\d+(\.\d*)?([eE][+-]?\d+)?'
     t.value = float(t.value)

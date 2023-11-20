@@ -39,7 +39,7 @@ varTempArr = []
 
 # Gramatica
 def p_program(p):
-    'program : PROGRAM IDENTIFIER LCURLYBRACE vars block RCURLYBRACE'
+    'program : PROGRAM IDENTIFIER LCURLY vars block RCURLY'
     p[0] = p[1]
 
 
@@ -113,16 +113,16 @@ def p_statement(_):
 
 
 def p_condition(p):
-    '''condition : IF LPAREN expression RPAREN checkbool seenif THEN LCURLYBRACE statement RCURLYBRACE seencurlyif seencurlyelse
-                | IF LPAREN expression RPAREN checkbool seenif THEN LCURLYBRACE statement RCURLYBRACE seencurlyif ELSE condition seencurlyelse
-                | IF LPAREN expression RPAREN checkbool seenif THEN LCURLYBRACE statement RCURLYBRACE seencurlyif ELSE LCURLYBRACE statement RCURLYBRACE seencurlyelse'''
+    '''condition : IF LPAR expression RPAR checkbool seenif THEN LCURLY statement RCURLY seencurlyif seencurlyelse
+                | IF LPAR expression RPAR checkbool seenif THEN LCURLY statement RCURLY seencurlyif ELSE condition seencurlyelse
+                | IF LPAR expression RPAR checkbool seenif THEN LCURLY statement RCURLY seencurlyif ELSE LCURLY statement RCURLY seencurlyelse'''
 
 def p_while(_):
-    'while : WHILE LPAREN expression RPAREN checkbool seenwhile DO LCURLYBRACE statement RCURLYBRACE seencurlywhile '
+    'while : WHILE LPAR expression RPAR checkbool seenwhile DO LCURLY statement RCURLY seencurlywhile '
 
 def p_for(_):
-    '''for : FOR LPAREN assign expression checkbool seenboolfor SEMICOLON expression seenchangefor RPAREN LCURLYBRACE statement RCURLYBRACE seencurlyfor
-            | FOR LPAREN assign expression checkbool seenboolfor SEMICOLON assignfor checknum seenchangefor RPAREN LCURLYBRACE statement RCURLYBRACE seencurlyfor'''
+    '''for : FOR LPAR assign expression checkbool seenboolfor SEMICOLON expression seenchangefor RPAR LCURLY statement RCURLY seencurlyfor
+            | FOR LPAR assign expression checkbool seenboolfor SEMICOLON assignfor checknum seenchangefor RPAR LCURLY statement RCURLY seencurlyfor'''
 
 
 
